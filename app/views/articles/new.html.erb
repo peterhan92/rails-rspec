@@ -1,0 +1,13 @@
+<h3>New Article</h3>
+
+<%= form_for @article, html: { role: "form" } do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title of article", autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_field :body, rows: 10, placeholder: "Body of article", autofocus: true %>
+  </div>
+  <button>Create</button>
+<% end %>
