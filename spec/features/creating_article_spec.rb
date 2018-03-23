@@ -5,7 +5,7 @@ RSpec.feature "Creating Articles" do
     # visit root page
     visit "/"
     # click link named "New Article"
-    click_link "New Article"
+    click_link "Create Article"
     # fill in title and body
     fill_in "Title", with: "Creating a test blog"
     fill_in "Body", with: "This is a test."
@@ -19,7 +19,7 @@ RSpec.feature "Creating Articles" do
 
   scenario "A user fails to create a new article when submitting blanks" do
     visit "/"
-    click_link "New Article"
+    click_link "Create Article"
     fill_in "Title", with: ""
     fill_in "Body", with: ""
     click_button "Create"
