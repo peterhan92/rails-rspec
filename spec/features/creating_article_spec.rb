@@ -16,4 +16,14 @@ RSpec.feature "Creating Articles" do
     # go to articles path
     expect(page.current_path).to eq(articles_path)
   end
+
+  scenario "A user fails to create a new article when submitting blanks" do
+    visit "/"
+    click_link "New Article"
+    fill_in "Title", with: ""
+    fill_in "Body", with: ""
+    click_button "Create"
+    expect(page).to have_content("Title can't be blank")
+    expect(page).to have_content("Body can't be blank")
+  end
 end

@@ -1,6 +1,16 @@
 <h3>New Article</h3>
 
 <%= form_for @article, html: { role: "form" } do |f| %>
+  <% if @article.errors.any? %>
+    <div class="alert alert-danger">
+      <h5><%= pluralize(@article.errors.count, "error")%> prohibited this article from being saved:</h5>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, placeholder: "Title of article", autofocus: true, class: "form-control" %>
