@@ -1,5 +1,7 @@
 <%= link_to "Create Article", new_article_path, class: "btn btn-light" %>
 
+<%= "<h2 id='no-articles'>No Articles Created</h2>".html_safe if @articles.empty? %>
+
 <% @articles.each do |article| %>
   <div class="card articles-list">
     <div class="card-body">
